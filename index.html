@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login form</h1>
+        <div class="content">
+            <h5>Sign in</h5>
+            <h6>Sign in with your username and password</h6>
+            <form id="loginForm" onsubmit="return login()">
+                <p>Your Mail:</p>
+                <input type="email" id="email" name="email" class="txt" placeholder="Enter your mail id">
+                <div id="emailerror" class="error-message"></div>
+                <p>Your Username:</p>
+                <input type="text" name="username" class="txt" placeholder="Enter Username">
+                <div id="usernamerror" class="error-message"></div>
+                <p>Your Password:</p>
+                <input type="password" name="password" class="txt" placeholder="Enter Password">
+                <div id="passworderror" class="error-message"></div>
+                <p>DOB:</p>
+                <input type="date" id="birthday" name="birthday" class="txt">
+                <div id="birthdayerror" class="error-message"></div>
+                <p>Your Mobile Number:</p>
+                <input type="tel" id="phone" name="phone" class="txt" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="Enter your Number">
+                <div id="phoneerror" class="error-message"></div>
+                <button type="submit" class="button">Login</button>
+            </form>
+            <p class="reg">Not a member?<span><a href="#">Register here!</a></span></p>
+        </div>
+    </div>
+<script>
+    function login() {
+        var email = document.getElementById('email').value;
+        var username = document.querySelector('input[name="username"]').value;
+        var password = document.querySelector('input[name="password"]').value;
+        var birthday = document.getElementById('birthday').value;
+        var phone = document.getElementById('phone').value;
+
+        var emailerror = document.getElementById('emailerror');
+        var usernamerror = document.getElementById('usernamerror');
+        var passworderror = document.getElementById('passworderror');
+        var birthdayerror = document.getElementById('birthdayerror');
+        var phoneerror = document.getElementById('phoneerror');
+
+        emailerror.innerHTML = '';
+        usernamerror.innerHTML = '';
+        passworderror.innerHTML = '';
+        birthdayerror.innerHTML = '';
+        phoneerror.innerHTML = '';
+
+        if (email === '') {
+            emailerror.innerHTML = 'Please enter a valid email address.';
+            return false;
+        }
+
+        if (username === '') {
+            usernamerror.innerHTML = 'Please enter a valid username.';
+            return false;
+        }
+
+        if (password === '') {
+            passworderror.innerHTML = 'Please enter a valid password.';
+            return false;
+        }
+
+        if (birthday === '') {
+            birthdayerror.innerHTML = 'Please enter your date of birth.';
+            return false;
+        }
+
+        if (phone === '') {
+            phoneerror.innerHTML = 'Please enter a valid phone number.';
+            return false;
+        }
+          alert('Login success!');
+        return true;
+    }
+</script>
+</body>
+</html>
